@@ -15,10 +15,11 @@ public class Dicionario {
     }
 
     private Map<String, String> getDicionario(TipoDicionario tipoDicionario) {
-        return switch (tipoDicionario) {
-            case PORTUGUES -> this.dicionarioPortugues;
-            case INGLES -> this.dicionarioIngles;
-        };
+        if (tipoDicionario == TipoDicionario.PORTUGUES) {
+            return this.dicionarioPortugues;
+        }
+
+        return this.dicionarioIngles;
     }
 
     public void adicionarPalavra(String palavra, String traducao, TipoDicionario tipoDicionario) {
